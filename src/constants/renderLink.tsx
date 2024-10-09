@@ -3,12 +3,12 @@ import { CalendarIcon, HomeIcon } from "@/icon";
 const renderLink = [
   {
     tab: "Dashboard",
-    pathname: "/dashboard/home",
+    link: "/dashboard/home",
     icon: <HomeIcon />,
   },
   {
     tab: "Calendar",
-    pathname: "/dashboard/calendar",
+    link: "/dashboard/calendar",
     icon: <CalendarIcon />,
   },
 ];

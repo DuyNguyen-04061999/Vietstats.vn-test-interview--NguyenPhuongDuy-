@@ -1,28 +1,35 @@
 import { cn } from "@/utils";
 import Link from "next/link";
-import React from "react";
+import React, { ReactNode } from "react";
 
-const SidebarItem = ({ pathname = "", icon, tab }) => {
+interface SidebarItemProps {
+  isActive: boolean;
+  icon: ReactNode;
+  tab: string;
+  link: string;
+}
+
+const SidebarItem = ({ isActive, icon, tab, link }: SidebarItemProps) => {
   return (
     <div
       className={cn("flex py-[10px] px-[15px] gap-1 items-center rounded-md", {
-        "bg-[#DFA128]": pathname.includes(pathname),
-        "bg-transparent": !pathname.includes(pathname),
+        "bg-[#DFA128]": isActive,
+        "bg-transparent": !isActive,
       })}
     >
       <div
         className={cn({
-          "text-white": pathname.includes(pathname),
-          "text-[#949ca9]": !pathname.includes(pathname),
+          "text-white": isActive,
+          "text-[#949ca9]": !isActive,
         })}
       >
         {icon}
       </div>
       <Link
-        href={pathname}
+        href={link}
         className={cn("font-normal text-base leading-6 w-full", {
-          "text-white": pathname.includes(pathname),
-          "text-[#949ca9]": !pathname.includes(pathname),
+          "text-white": isActive,
+          "text-[#949ca9]": !isActive,
         })}
       >
         {tab}
