@@ -14,7 +14,7 @@ export function middleware(request: NextRequest) {
   }
 
   if (authPath.some((path) => pathname.startsWith(path)) && token) {
-    return NextResponse.redirect(new URL("/dashboard", request.url));
+    return NextResponse.redirect(new URL("/dashboard/home", request.url));
   }
 
   return NextResponse.next();
